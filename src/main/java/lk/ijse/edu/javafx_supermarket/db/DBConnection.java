@@ -13,4 +13,14 @@ public class DBConnection {
         connection = DriverManager.getConnection("mysql://localhost:3306/supermarket", "root", "Ijse@1234");
     }
 
+    private static DBConnection getInstance() throws SQLException {
+        if(dbConnection == null){
+            dbConnection = new DBConnection();
+        }
+        return dbConnection;
+    }
+
+    public  Connection getConnection() throws SQLException {
+        return connection;
+    }
 }
